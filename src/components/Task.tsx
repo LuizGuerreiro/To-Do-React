@@ -20,7 +20,7 @@ export function Task({ id, checked, content, checkTask, deleteTask}:TaskProps) {
   }
 
   return (
-    <>
+    <div id={id} className='task'>
       <button type='button' onClick={handleCheckTask}>
         {check}
       </button>
@@ -28,6 +28,6 @@ export function Task({ id, checked, content, checkTask, deleteTask}:TaskProps) {
       <button type='button' onClick={handleDeleteTask}>
         <Trash/>
       </button>
-    </>
+    </div>
   )
 }
