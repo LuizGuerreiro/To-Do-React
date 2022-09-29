@@ -3,9 +3,11 @@ import { TaskList } from "./components/TaskList";
 
 export function App() {
   return (
-    <main>
+    <>
       <Header/>
-      <TaskList/>
-    </main>
+      <main>
+        <TaskList/>
+      </main>
+    </>
   )
 }
