@@ -1,12 +1,19 @@
 import { ChangeEvent, FormEvent, useState } from "react"
+import { Counters } from "./Counters"
 import { Task } from "./Task"
 
 export function TaskList() {
   const [tasks, setTasks] = useState([
-    {id: "1", checked:false, content:"Valeu"},
-    {id: "2", checked:true, content:"Por"},
-    {id: "3", checked:false, content:"Verificar"}
+    {id: "0", checked:false, content:""}
   ])
+
+  const totalTasks = tasks.length - 1
+  let finishedTasks = 0
+  for (const task of tasks) {
+    if (task.checked) {
+      finishedTasks += 1
+    }
+  }
 
   const [newTaskContent, setNewTaskContent] = useState("")
 
@@ -57,17 +64,22 @@ export function TaskList() {
           Nova tarefa
         </button>
       </form>
+      <Counters totalTasks={totalTasks} finishedTasks={finishedTasks}/>
       {tasks.map(task => {
-        return (
-          <Task 
-            id={task.id} 
-            checked={task.checked} 
-            content={task.content} 
-            key={task.id} 
-            checkTask={checkTask}
-            deleteTask={deleteTask}
-          />
-        )
+        if(task.id === "0") {
+          return
+        } else {
+          return (
+            <Task 
+              id={task.id} 
+              checked={task.checked} 
+              content={task.content} 
+              key={task.id} 
+              checkTask={checkTask}
+              deleteTask={deleteTask}
+            />
+          )
+        }
       })}
     </div>
   )
