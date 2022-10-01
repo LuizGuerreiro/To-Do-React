@@ -1,5 +1,7 @@
 import { CheckCircle, Circle, Trash } from 'phosphor-react'
 
+import styles from '../../public/styles/Task.module.css'
+
 interface TaskProps {
   id: string,
   checked: boolean,
@@ -9,7 +11,10 @@ interface TaskProps {
 }
 
 export function Task({ id, checked, content, checkTask, deleteTask}:TaskProps) {
-  const check = (checked ? <CheckCircle/> : <Circle/>)
+  const check = (checked ? 
+                  <CheckCircle size={24} color="#5E60CE" weight="fill" /> : 
+                  <Circle size={24} color="#4EA8DE" />
+                )
 
   function handleCheckTask() {
     checkTask(id)
@@ -20,13 +25,13 @@ export function Task({ id, checked, content, checkTask, deleteTask}:TaskProps) {
   }
 
   return (
-    <div id={id} className='task'>
+    <div id={id} className={checked ? `${styles.checked}` : `${styles.task}`}>
       <button type='button' onClick={handleCheckTask}>
         {check}
       </button>
       <p>{content}</p>
       <button type='button' onClick={handleDeleteTask}>
-        <Trash/>
+        <Trash size={24} color="#808080"/>
       </button>
     </div>
   )

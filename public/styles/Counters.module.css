@@ -1,0 +1,28 @@
+.counters {
+  margin-top: 2.75rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  font-weight: bold;
+  line-height: 1.06rem;
+}
+
+.counters p:first-child {
+  color: var(--blue);
+}
+
+.counters p {
+  color: var(--purple);
+}
+
+.counters p span {
+  padding: 0.125rem 0.5rem;
+  border-radius: 62.438rem;
+  background-color: var(--gray-400);
+  font-size: 0.75rem;
+  font-weight: bold;
+  line-height: 0.908rem;
+  color: var(--gray-200);
+}
