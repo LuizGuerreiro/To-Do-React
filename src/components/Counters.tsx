@@ -6,7 +6,9 @@ interface CountersProps {
 }
 
 export function Counters({totalTasks, finishedTasks}:CountersProps) {
+  
   const done = (totalTasks === 0 ? "0" : `${finishedTasks} de ${totalTasks}`)
+
   return (
     <div className={styles.counters}>
       <p>Tarefas criadas: <span>{totalTasks}</span></p>

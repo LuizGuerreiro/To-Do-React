@@ -12,8 +12,8 @@ interface TaskProps {
 
 export function Task({ id, checked, content, checkTask, deleteTask}:TaskProps) {
   const check = (checked ? 
-                  <CheckCircle size={24} color="#5E60CE" weight="fill" /> : 
-                  <Circle size={24} color="#4EA8DE" />
+                  <CheckCircle className={styles.checkCircle} size={24} weight="fill"/> : 
+                  <Circle className={styles.circle} size={24}/>
                 )
 
   function handleCheckTask() {
@@ -31,7 +31,7 @@ export function Task({ id, checked, content, checkTask, deleteTask}:TaskProps) {
       </button>
       <p>{content}</p>
       <button type='button' onClick={handleDeleteTask}>
-        <Trash size={24} color="#808080"/>
+        <Trash className={styles.trash} size={24}/>
       </button>
     </div>
   )
